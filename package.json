@@ -2,24 +2,37 @@
   "name": "knedlik",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
-  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "lint": "esw webpack.config.* src tools --color",
+    "lint:watch": "npm run lint -- --watch",
+    "server:dev": "babel-node tools/server-dev.js",
+    "start": "npm-run-all --parallel server:dev",
+    "start1": "npm-run-all --parallel server:dev lint:watch"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.4",
+    "browser-sync": "^2.26.3",
+    "chalk": "^2.4.1",
+    "connect-history-api-fallback": "^1.5.0",
+    "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-hot-loader": "^4.6.3",
+    "webpack": "^4.28.2",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3"
+  }
 }
