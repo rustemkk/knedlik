@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved:0 */
 import React, { Component } from 'react';
 
 import logo from 'images/logo.svg';

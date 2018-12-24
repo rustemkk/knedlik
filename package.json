@@ -5,8 +5,7 @@
     "lint": "esw webpack.config.* src tools --color",
     "lint:watch": "npm run lint -- --watch",
     "server:dev": "babel-node tools/server-dev.js",
-    "start": "npm-run-all --parallel server:dev",
-    "start1": "npm-run-all --parallel server:dev lint:watch"
+    "start": "npm-run-all --parallel server:dev lint:watch"
   },
   "browserslist": [
     ">0.2%",
@@ -21,12 +20,16 @@
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.4.3",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "browser-sync": "^2.26.3",
     "chalk": "^2.4.1",
     "connect-history-api-fallback": "^1.5.0",
     "css-loader": "^2.0.2",
+    "eslint": "^5.11.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-watch": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",

@@ -17,8 +17,6 @@ export default {
   // controls if and how source maps are generated (https://webpack.js.org/configuration/devtool/#devtool)
   devtool: 'source-map',
   entry: [
-    // must be first entry to properly set public path
-    // './src/webpack-public-path',
     'webpack-hot-middleware/client?reload=true',
     '@babel/polyfill',
     './src/index'
@@ -32,9 +30,6 @@ export default {
     chunkFilename: '[name].[chunkhash].chunk.js',
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': { 'NODE_ENV': JSON.stringify('development') },
-    }),
     new webpack.HotModuleReplacementPlugin(),
     // generate index.html containing references to generated bundles (https://github.com/jantimon/html-webpack-plugin)
     new HtmlWebpackPlugin({
@@ -44,9 +39,6 @@ export default {
       inject: true
     }),
   ],
-  optimization: {
-    noEmitOnErrors: true,
-  },
   module: {
     rules: [
       {
