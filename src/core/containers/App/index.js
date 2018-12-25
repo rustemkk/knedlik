@@ -1,25 +1,25 @@
 /* eslint import/no-unresolved:0 */
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import logo from 'images/logo.svg';
-
+import TopMenu from '../TopMenu';
 import s from './index.scss';
 
 
 class App extends Component {
   render() {
     return (
-      <div className={s.App}>
-        <header className={s.AppHeader}>
-          <img src={logo} className={s.AppLogo} alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a className={s.AppLink} href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div className={s.App}>
+          <TopMenu/>
+          <Switch>
+            <Route exact path="/" component={() => <div>1</div>}/>
+            <Route path="/accounts/:accountId?" component={() => <div>AccountsPage</div>}/>
+            <Route path="/categories/:categoryId?" component={() => <div>CategoriesPage</div>}/>
+            <Route component={() => <div>Page not found :)</div>}/>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

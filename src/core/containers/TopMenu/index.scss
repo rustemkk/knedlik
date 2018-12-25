@@ -1,0 +1,19 @@
+.Menu {
+  height: $topMenuHeight;
+  background-color: #61dafb;
+
+  .MenuItem {
+    display: inline;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid $textColorInverted;
+    line-height: $topMenuHeight;
+    color: $textColorInverted;
+    text-decoration: none;
+    text-transform: uppercase;
+    &:hover {
+      color: #61dafb;
+      background-color: $textColorInverted;
+    }
+  }
+}
