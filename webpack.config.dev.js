@@ -8,6 +8,8 @@ export default {
   context: path.resolve(__dirname, './'),
   resolve: {
     alias: {
+      accounts: path.resolve(__dirname, './src/accounts'),
+      categories: path.resolve(__dirname, './src/categories'),
       core: path.resolve(__dirname, './src/core'),
       images: path.resolve(__dirname, './src/images')
     },

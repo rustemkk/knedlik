@@ -1,7 +1,16 @@
+/* eslint import/no-unresolved:0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
 import App from './core/containers/App';
+import configureStore from './store';
 
 
-ReactDOM.render(<App />, document.getElementById('app'));
+const store = configureStore();
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App/>
+  </Provider>, document.getElementById('app')
+);
