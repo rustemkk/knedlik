@@ -11,7 +11,8 @@ export default {
       accounts: path.resolve(__dirname, './src/accounts'),
       categories: path.resolve(__dirname, './src/categories'),
       core: path.resolve(__dirname, './src/core'),
-      images: path.resolve(__dirname, './src/images')
+      images: path.resolve(__dirname, './src/images'),
+      utils: path.resolve(__dirname, './src/utils')
     },
     modules: ['src', 'node_modules'],
     extensions: ['*', '.js', '.jsx']
