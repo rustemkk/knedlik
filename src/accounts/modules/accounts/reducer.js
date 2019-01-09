@@ -1,4 +1,3 @@
-/* eslint import/no-unresolved:0 */
 import { uniq } from 'lodash';
 import { combineReducers } from 'redux';
 

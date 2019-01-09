@@ -2,12 +2,14 @@
 import { combineReducers } from 'redux';
 
 import accounts from './accounts/modules';
+import core from './core/modules';
 // import categories from './categories/modules';
 
 
 const allModules = [
   accounts,
-  // categories
+  // categories,
+  core
 ];
 
 let reducers = {};

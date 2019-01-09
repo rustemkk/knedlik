@@ -1,7 +1,10 @@
-/* eslint import/no-unresolved:0 */
+/* eslint import/no-unresolved: 0 */
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import { showModal } from 'core/modules/modals/actions';
+import { NEW_ACCOUNT_MODAL } from 'core/modules/modals/constants';
 
 import { loadAccounts } from '../../modules/accounts/actions';
 import { getAccounts } from '../../modules/accounts/selectors';
@@ -12,7 +15,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  loadAccounts
+  loadAccounts,
+  showModal
 };
 
 class Accounts extends Component {
@@ -21,7 +25,7 @@ class Accounts extends Component {
   }
 
   render() {
-    const { accounts } = this.props;
+    const { accounts, showModal } = this.props;
 
     return (
       <div>
@@ -32,6 +36,9 @@ class Accounts extends Component {
             {`${account._id} - ${account.title} - ${account.currency} - ${account.initialAmount}`}
           </div>
         )}
+        <div onClick={() => showModal(NEW_ACCOUNT_MODAL)}>
+          NEW ACCOUNT
+        </div>
       </div>
     );
   }
@@ -40,6 +47,7 @@ class Accounts extends Component {
 Accounts.propTypes = {
   accounts: PropTypes.array,
   loadAccounts: PropTypes.func.isRequired,
+  showModal: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Accounts);

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AccountsPage from 'accounts/pages/AccountsPage';
 import CategoriesPage from 'categories/pages/CategoriesPage';
 
+import Modals from '../Modals';
 import TopMenu from '../TopMenu';
 import s from './index.scss';
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path="/categories/:categoryId?" component={() => <CategoriesPage/>}/>
             <Route component={() => <div>Page not found :)</div>}/>
           </Switch>
+          <Modals/>
         </div>
       </Router>
     );
