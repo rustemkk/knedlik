@@ -1,25 +1,22 @@
 /* eslint import/no-unresolved:0 */
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink, withRouter } from 'react-router-dom';
 
-// import logo from 'images/logo.svg';
+import logo from 'images/logo.svg';
 
 import s from './index.scss';
 
 
-class TopMenu extends Component {
-  render() {
-    return (
-      <div className={s.Menu}>
-        <Link className={s.MenuItem} to="/accounts">
-          Accounts
-        </Link>
-        <Link className={s.MenuItem} to="/categories">
-          Categories
-        </Link>
-      </div>
-    );
-  }
-}
+const TopMenu = () => (
+  <div className={s.TopMenu}>
+    <img className={s.Logo} src={logo} alt="logo"/>
+    <NavLink className={s.MenuItem} activeClassName={s.MenuItemActive} to="/accounts">
+      Accounts
+    </NavLink>
+    <NavLink className={s.MenuItem} activeClassName={s.MenuItemActive} to="/categories">
+      Categories
+    </NavLink>
+  </div>
+);
 
-export default TopMenu;
+export default withRouter(TopMenu);

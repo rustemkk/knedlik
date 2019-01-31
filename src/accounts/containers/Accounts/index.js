@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 
 import { showModal } from 'core/modules/modals/actions';
 import { NEW_ACCOUNT_MODAL } from 'core/modules/modals/constants';
+import SvgIcon from 'ui/components/SvgIcon';
 
 import { loadAccounts } from '../../modules/accounts/actions';
 import { getAccounts } from '../../modules/accounts/selectors';
+import s from './index.scss';
 
 
 const mapStateToProps = (state) => ({
@@ -20,6 +22,7 @@ const mapDispatchToProps = {
 };
 
 class Accounts extends Component {
+
   componentDidMount() {
     this.props.loadAccounts();
   }
@@ -28,16 +31,27 @@ class Accounts extends Component {
     const { accounts, showModal } = this.props;
 
     return (
-      <div>
-        Accounts
-        <br/>
+      <div className={s.Accounts}>
         {accounts.map(account =>
-          <div key={account._id}>
-            {`${account._id} - ${account.title} - ${account.currency} - ${account.initialAmount}`}
+          <div className={s.Account} key={account._id}>
+            <div className={s.Icon}>
+              <SvgIcon className={s.IconClose} name={account.icon} size={40}/>
+            </div>
+            <div className={s.Title}>
+              {account.title}
+            </div>
+            <div className={s.Amount}>
+              {`${account.amount} ${account.currency}`}
+            </div>
           </div>
         )}
-        <div onClick={() => showModal(NEW_ACCOUNT_MODAL)}>
-          NEW ACCOUNT
+        <div className={s.Account} onClick={() => showModal(NEW_ACCOUNT_MODAL)}>
+          <div className={s.Icon}>
+            <SvgIcon className={s.IconClose} name="plus" size={40}/>
+          </div>
+          <div className={s.Title}>
+            NEW ACCOUNT
+          </div>
         </div>
       </div>
     );

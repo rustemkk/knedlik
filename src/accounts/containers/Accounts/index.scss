@@ -1,0 +1,45 @@
+.Accounts {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-right: 20px;
+
+  .Account {
+    width: 200px;
+    height: 60px;
+    border: 2px solid $textColor;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 60px 10px 130px;
+    grid-template-rows: 30px 30px;
+    grid-template-areas: "icon _ title" "icon _ amount";
+
+    &:hover {
+      border: 2px solid $textColorActive;
+    }
+
+    .Icon {
+      grid-area: icon;
+      margin: auto;
+
+      .IconClose {
+        background-color: $textColor;
+      }
+    }
+
+    .Title {
+      grid-area: title;
+      line-height: 30px;
+      font-size: $fontSizeBig;
+    }
+
+    .Amount {
+      grid-area: amount;
+      line-height: 30px;
+    }
+  }
+}

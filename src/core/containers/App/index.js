@@ -1,5 +1,5 @@
 /* eslint import/no-unresolved:0 */
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import AccountsPage from 'accounts/pages/AccountsPage';
@@ -10,23 +10,21 @@ import TopMenu from '../TopMenu';
 import s from './index.scss';
 
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className={s.App}>
-          <TopMenu/>
-          <Switch>
-            <Route exact path="/" component={() => <div>1</div>}/>
-            <Route path="/accounts/:accountId?" component={() => <AccountsPage/>}/>
-            <Route path="/categories/:categoryId?" component={() => <CategoriesPage/>}/>
-            <Route component={() => <div>Page not found :)</div>}/>
-          </Switch>
-          <Modals/>
-        </div>
-      </Router>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <div className={s.App}>
+      <TopMenu/>
+      <div className={s.Page}>
+        <Switch>
+          <Route exact path="/" component={() => <div>1</div>}/>
+          <Route path="/accounts/:accountId?" component={() => <AccountsPage/>}/>
+          <Route path="/categories/:categoryId?" component={() => <CategoriesPage/>}/>
+          <Route component={() => <div>Page not found :)</div>}/>
+        </Switch>
+      </div>
+      <Modals/>
+    </div>
+  </Router>
+);
 
 export default App;

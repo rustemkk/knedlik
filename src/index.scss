@@ -1,9 +1,16 @@
 // style global variables
 
-$topMenuHeight: 45px;
+$topMenuHeight: 50px;
+$topMenuBackgroundColor: #424242;
+$topMenuFontSize: 20px;
 
-$backgroundColor: #fff;
+$backgroundColor: linear-gradient(to bottom right, #353533, #181815);
+
+$fontSize: 16px;
+$fontSizeBig: 18px;
+
 $modalBackgroundColor: rgba(0, 0, 0, 0.7);
 
-$textColor: #282c34;
-$textColorInverted: #fff;
+$textColor: #FFF;
+$textColorActive: #EBCF39;
+$textColorInverted: #424242;
