@@ -1,0 +1,17 @@
+.IconButton {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $textColorActive;
+    .Icon {
+      background-color: $textColorInverted;
+    }
+  }
+
+  .Icon {
+    background-color: $textColor;
+    margin: 7px auto;
+  }
+}

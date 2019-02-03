@@ -14,3 +14,8 @@ export const getAccounts = createSelector(
   getAccountsIds,
   (accounts, ids) => ids.map(id => accounts[id])
 );
+
+export const getAccountById = (accountId) => createSelector(
+  getAccountsEntities,
+  (accounts) => accounts[accountId]
+);

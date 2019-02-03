@@ -1,0 +1,18 @@
+.FormButton {
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
+  color: $textColor;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: $fontSizeBig;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: $fontFamily;
+
+  &:hover {
+    color: $textColorInverted;
+    background-color: $textColorActive;
+  }
+}

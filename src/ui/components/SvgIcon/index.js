@@ -22,7 +22,6 @@ const SvgIcon = ({ className, name, size }) => (
       WebkitMaskRepeat: 'no-repeat',
       width: size ? `${size}px` : '25px',
       height: size ? `${size}px` : '25px',
-      backgroundColor: '#FFF',
       display: 'block'
     }}
   />

@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { showModal } from 'core/modules/modals/actions';
-import { NEW_ACCOUNT_MODAL } from 'core/modules/modals/constants';
+import { ACCOUNT_MODAL } from 'core/modules/modals/constants';
 import SvgIcon from 'ui/components/SvgIcon';
 
 import { loadAccounts } from '../../modules/accounts/actions';
@@ -33,7 +33,11 @@ class Accounts extends Component {
     return (
       <div className={s.Accounts}>
         {accounts.map(account =>
-          <div className={s.Account} key={account._id}>
+          <div
+            className={s.Account}
+            key={account._id}
+            onClick={() => showModal(ACCOUNT_MODAL, { accountId: account._id })}
+          >
             <div className={s.Icon}>
               <SvgIcon className={s.IconClose} name={account.icon} size={40}/>
             </div>
@@ -45,12 +49,9 @@ class Accounts extends Component {
             </div>
           </div>
         )}
-        <div className={s.Account} onClick={() => showModal(NEW_ACCOUNT_MODAL)}>
+        <div className={s.Account} onClick={() => showModal(ACCOUNT_MODAL)}>
           <div className={s.Icon}>
             <SvgIcon className={s.IconClose} name="plus" size={40}/>
-          </div>
-          <div className={s.Title}>
-            NEW ACCOUNT
           </div>
         </div>
       </div>

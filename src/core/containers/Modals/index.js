@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import NewAccountModal from 'accounts/containers/NewAccountModal';
+import AccountModal from 'accounts/containers/AccountModal';
 
 import { hideModal } from '../../modules/modals/actions';
-import { NEW_ACCOUNT_MODAL } from '../../modules/modals/constants';
+import { ACCOUNT_MODAL } from '../../modules/modals/constants';
 
 
 const MODAL_COMPONENTS = {
-  [NEW_ACCOUNT_MODAL]: NewAccountModal,
+  [ACCOUNT_MODAL]: AccountModal,
 };
 
 const mapStateToProps = state => ({

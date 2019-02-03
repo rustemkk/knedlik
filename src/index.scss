@@ -4,13 +4,18 @@ $topMenuHeight: 50px;
 $topMenuBackgroundColor: #424242;
 $topMenuFontSize: 20px;
 
-$backgroundColor: linear-gradient(to bottom right, #353533, #181815);
+$backgroundImage: linear-gradient(to bottom right, #353533, #181815);
+$backgroundImageInverted: linear-gradient(to bottom right, #353533, #181815);
 
 $fontSize: 16px;
 $fontSizeBig: 18px;
+$fontSizeSmall: 14px;
 
-$modalBackgroundColor: rgba(0, 0, 0, 0.7);
+$fontFamily: 'Slabo 27px', serif;
+
+$modalBackgroundColor: rgba(255, 255, 255, 0.5);
 
 $textColor: #FFF;
 $textColorActive: #EBCF39;
+$textColorError: #ff4c73;
 $textColorInverted: #424242;

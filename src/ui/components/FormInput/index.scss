@@ -1,0 +1,35 @@
+.FormInput {
+  display: grid;
+  grid-template-columns: 120px 180px;
+  grid-template-rows: 20px 26px;
+  grid-template-areas: "label input1" "_ error";
+
+  .Label {
+    grid-area: label;
+    text-align: end;
+    padding: 0 10px 0 0;
+    font-size: $fontSizeBig;
+  }
+
+  .Input {
+    grid-area: input1;
+    padding: 0 0 0 10px;
+    font-size: $fontSizeSmall;
+    font-family: $fontFamily;
+    background-color: transparent;
+    color: $textColor;
+    border: 1px solid $textColor;
+    outline: none;
+
+    &:focus {
+      border: 1px solid $textColorActive;
+    }
+  }
+
+  .Error {
+    grid-area: error;
+    padding: 0 0 0 11px;
+    font-size: $fontSizeSmall;
+    color: $textColorError;
+  }
+}
