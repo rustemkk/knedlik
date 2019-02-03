@@ -22,6 +22,35 @@ function* loadAccountsTask() {
   }
 }
 
+function* createAccountTask({ account }) {
+  try {
+    account = { ...account, amount: account.initialAmount };
+    const payload = yield call(firebase.firestore.addDocument, `accounts`, account);
+    const normalized = normalize([{ ...account, _id: payload.id }], arrayOf(accountSchema));
+    yield put(actions.loadAccountsSuccess(normalized));
+  } catch (err) {
+    console.log('createAccountTaskError', err);
+  }
+}
+
+function* updateAccountTask({ account }) {
+  try {
+    yield call(firebase.firestore.setDocument, `accounts/${account._id}`, account);
+    yield put(actions.updateAccountSuccess(account));
+  } catch (err) {
+    console.log('updateAccountTaskError', err);
+  }
+}
+
+function* deleteAccountTask({ accountId }) {
+  try {
+    yield call(firebase.firestore.deleteDocument, `accounts/${accountId}`);
+    yield put(actions.deleteAccountSuccess(accountId));
+  } catch (err) {
+    console.log('deleteAccountTaskError', err);
+  }
+}
+
 //=====================================
 //  WATCHERS
 //-------------------------------------
@@ -30,12 +59,27 @@ function* watchLoadAccounts() {
   yield takeLatest(actionTypes.LOAD_ACCOUNTS_REQUEST, loadAccountsTask);
 }
 
+function* watchCreateAccount() {
+  yield takeLatest(actionTypes.CREATE_ACCOUNT_REQUEST, createAccountTask);
+}
+
+function* watchUpdateAccount() {
+  yield takeLatest(actionTypes.UPDATE_ACCOUNT_REQUEST, updateAccountTask);
+}
+
+function* watchDeleteAccount() {
+  yield takeLatest(actionTypes.DELETE_ACCOUNT_REQUEST, deleteAccountTask);
+}
+
 //=====================================
 //  ROOT
 //-------------------------------------
 
 const accountsSagas = [
   fork(watchLoadAccounts),
+  fork(watchCreateAccount),
+  fork(watchUpdateAccount),
+  fork(watchDeleteAccount),
 ];
 
 export default accountsSagas;

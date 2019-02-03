@@ -34,7 +34,7 @@ FormInput.propTypes = {
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
 };
 
 export default FormInput;
