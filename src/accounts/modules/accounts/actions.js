@@ -13,10 +13,11 @@ export const loadAccounts = () => ({
   type: LOAD_ACCOUNTS_REQUEST
 });
 
-export const loadAccountsSuccess = ({ entities: { accounts }, result }) => ({
+export const loadAccountsSuccess = ({ entities: { accounts }, result }, isResetState) => ({
   type: LOAD_ACCOUNTS_SUCCESS,
   accounts,
-  accountsByIds: result
+  accountsByIds: result,
+  isResetState
 });
 
 export const createAccount = (account) => ({

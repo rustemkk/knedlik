@@ -16,7 +16,7 @@ function* loadAccountsTask() {
     let accounts = [];
     payload.forEach(account => accounts.push({ _id: account.id, ...account.data() }));
     const normalized = normalize(accounts, arrayOf(accountSchema));
-    yield put(actions.loadAccountsSuccess(normalized));
+    yield put(actions.loadAccountsSuccess(normalized, true));
   } catch (err) {
     console.log('loadAccountsTaskError', err);
   }
@@ -27,7 +27,7 @@ function* createAccountTask({ account }) {
     account = { ...account, amount: account.initialAmount };
     const payload = yield call(firebase.firestore.addDocument, `accounts`, account);
     const normalized = normalize([{ ...account, _id: payload.id }], arrayOf(accountSchema));
-    yield put(actions.loadAccountsSuccess(normalized));
+    yield put(actions.loadAccountsSuccess(normalized, false));
   } catch (err) {
     console.log('createAccountTaskError', err);
   }

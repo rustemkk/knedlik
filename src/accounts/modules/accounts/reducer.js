@@ -1,20 +1,13 @@
 import { uniq } from 'lodash';
 import { combineReducers } from 'redux';
 
-import {
-  DELETE_ACCOUNT_SUCCESS,
-  LOAD_ACCOUNTS_REQUEST,
-  LOAD_ACCOUNTS_SUCCESS,
-  UPDATE_ACCOUNT_SUCCESS
-} from './constants';
+import { DELETE_ACCOUNT_SUCCESS, LOAD_ACCOUNTS_SUCCESS, UPDATE_ACCOUNT_SUCCESS } from './constants';
 
 
 const accounts = (state = {}, action) => {
   switch (action.type) {
-    case LOAD_ACCOUNTS_REQUEST:
-      return {};
     case LOAD_ACCOUNTS_SUCCESS:
-      return { ...state, ...action.accounts };
+      return { ...action.isResetState ? {} : state, ...action.accounts };
     case UPDATE_ACCOUNT_SUCCESS:
       return { ...state, [action.account._id]: action.account };
     default:
@@ -24,10 +17,8 @@ const accounts = (state = {}, action) => {
 
 const accountsByIds = (state = [], action) => {
   switch (action.type) {
-    case LOAD_ACCOUNTS_REQUEST:
-      return [];
     case LOAD_ACCOUNTS_SUCCESS:
-      return uniq([...state, ...action.accountsByIds]);
+      return action.isResetState ? action.accountsByIds : uniq([...state, ...action.accountsByIds]);
     case DELETE_ACCOUNT_SUCCESS:
       return state.filter(id => id !== action.accountId);
     default:
