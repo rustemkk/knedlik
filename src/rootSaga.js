@@ -1,11 +1,11 @@
 /* eslint import/no-unresolved: 0*/
 import accounts from 'accounts/modules';
-// import categories from 'categories/modules';
+import categories from 'categories/modules';
 
 
 const allModules = [
   accounts,
-  // categories,
+  categories,
 ];
 
 let sagas = [];

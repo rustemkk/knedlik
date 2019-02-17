@@ -6,6 +6,7 @@ const icons = [
   'close',
   'card',
   'dollar',
+  'fastFood',
   'plus',
   'wallet',
 ].reduce((acc, curr) => ({ ...acc, [curr]: require(`./svg/${curr}.svg`) }), {});

@@ -1,15 +1,9 @@
-/* eslint import/no-unresolved:0 */
-import React, { Component } from 'react';
+import React from 'react';
 
+import Categories from '../../containers/Categories';
 
-class CategoriesPage extends Component {
-  render() {
-    return (
-      <div>
-        CategoriesPage
-      </div>
-    );
-  }
-}
+const AccountsPage = () => (
+  <Categories/>
+);
 
-export default CategoriesPage;
+export default AccountsPage;

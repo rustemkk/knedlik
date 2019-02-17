@@ -3,13 +3,13 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
 import accounts from './accounts/modules';
+import categories from './categories/modules';
 import core from './core/modules';
-// import categories from './categories/modules';
 
 
 const allModules = [
   accounts,
-  // categories,
+  categories,
   core
 ];
 

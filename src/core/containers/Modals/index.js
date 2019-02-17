@@ -4,13 +4,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AccountModal from 'accounts/containers/AccountModal';
+import CategoryModal from 'categories/containers/CategoryModal';
 
 import { hideModal } from '../../modules/modals/actions';
-import { ACCOUNT_MODAL } from '../../modules/modals/constants';
+import { ACCOUNT_MODAL, CATEGORY_MODAL } from '../../modules/modals/constants';
 
 
 const MODAL_COMPONENTS = {
   [ACCOUNT_MODAL]: AccountModal,
+  [CATEGORY_MODAL]: CategoryModal,
 };
 
 const mapStateToProps = state => ({

@@ -9,39 +9,35 @@ import FormInput from 'ui/components/FormInput';
 import s from './index.scss';
 
 
-let AccountForm = ({ handleSubmit, initialValues, onDeleteAccount }) => (
+let CategoryForm = ({ handleSubmit, initialValues, onDeleteCategory }) => (
   <form onSubmit={handleSubmit}>
     <Field autoFocus component={FormInput} label="Title" name="title"/>
     <Field component={FormInput} label="Icon" name="icon"/>
-    <Field component={FormInput} label="Initial amount" name="initialAmount"/>
-    <Field component={FormInput} label="Currency" name="currency"/>
+    <Field component={FormInput} label="Type" name="type"/>
     <div className={s.FormButtons}>
       <FormButton label="Save" type="submit"/>
       {initialValues._id &&
-        <FormButton label="Delete" onClick={onDeleteAccount} type="button"/>
+        <FormButton label="Delete" onClick={onDeleteCategory} type="button"/>
       }
     </div>
   </form>
 );
 
-AccountForm = reduxForm({
-  form: 'accountForm',
+CategoryForm = reduxForm({
+  form: 'categoryForm',
   validate: (values) => {
     const errors = {};
     if (!values.title) {
       errors.title = "This field is required.";
     }
-    if (!values.currency) {
-      errors.currency = "This field is required.";
-    }
     return errors;
   }
-})(AccountForm);
+})(CategoryForm);
 
-AccountForm.propTypes = {
+CategoryForm.propTypes = {
   handleSubmit: PropTypes.func,
   initialValues: PropTypes.object.isRequired,
-  onDeleteAccount: PropTypes.func.isRequired,
+  onDeleteCategory: PropTypes.func.isRequired,
 };
 
-export default AccountForm;
+export default CategoryForm;
