@@ -27,6 +27,7 @@
     left: 0;
     background-image: $backgroundImageInverted;
     border: 1px solid $textColor;
+    z-index: 1;
 
     .Option {
       position: relative;
@@ -40,6 +41,10 @@
         background-color: $textColorActive;
 
         .IconCheck {
+          background-color: $textColorInverted;
+        }
+
+        > span > span {
           background-color: $textColorInverted;
         }
       }

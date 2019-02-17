@@ -1,3 +1,15 @@
+.AccountIcon {
+  position: relative;
+  padding: 0 6px 0 26px;
+
+  .Icon {
+    position: absolute;
+    top: -1px;
+    left: 0;
+    background-color: $textColor;
+  }
+}
+
 .FormButtons {
   width: 100%;
   text-align: center;

@@ -12,7 +12,7 @@ export const getCategoriesIds = (state) =>
 export const getCategories = createSelector(
   getCategoriesEntities,
   getCategoriesIds,
-  (categories, ids) => ids.map(id => categories[id])
+  (categories, ids) => ids.map(id => categories[id]).sort((a, b) => a.title > b.title ? 1 : -1)
 );
 
 export const getCategoryById = (categoryId) => createSelector(

@@ -6,6 +6,7 @@ import { Field, reduxForm } from 'redux-form';
 import FormButton from 'ui/components/FormButton';
 import FormDropdown from 'ui/components/FormDropdown';
 import FormInput from 'ui/components/FormInput';
+import SvgIcon, { ACCOUNTS_ICONS } from 'ui/components/SvgIcon';
 
 import s from './index.scss';
 
@@ -13,7 +14,15 @@ import s from './index.scss';
 let AccountForm = ({ handleSubmit, initialValues, onDeleteAccount }) => (
   <form onSubmit={handleSubmit}>
     <Field autoFocus component={FormInput} label="Title" name="title"/>
-    <Field component={FormInput} label="Icon" name="icon"/>
+    <Field
+      component={FormDropdown}
+      label="Icon"
+      name="icon"
+      options={ACCOUNTS_ICONS.map(icon => ({
+        label: <span className={s.AccountIcon}><SvgIcon className={s.Icon} name={icon} size={20}/>{icon}.svg</span>,
+        value: icon
+      }))}
+    />
     <Field component={FormInput} label="Initial amount" name="initialAmount"/>
     <Field
       component={FormDropdown}

@@ -12,7 +12,7 @@ export const getAccountsIds = (state) =>
 export const getAccounts = createSelector(
   getAccountsEntities,
   getAccountsIds,
-  (accounts, ids) => ids.map(id => accounts[id])
+  (accounts, ids) => ids.map(id => accounts[id]).sort((a, b) => a.title > b.title ? 1 : -1)
 );
 
 export const getAccountById = (accountId) => createSelector(

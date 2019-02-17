@@ -4,13 +4,23 @@ import React from 'react';
 
 const icons = [
   'arrowSimpleDown',
+  'bank',
+  'building',
+  'cake',
   'check',
+  'child',
   'close',
   'card',
   'dollar',
-  'fastFood',
+  'fitness',
+  'food',
+  'laptop',
+  'mood',
   'plus',
+  'transport',
   'wallet',
+  'waves',
+  'work',
 ].reduce((acc, curr) => ({ ...acc, [curr]: require(`./svg/${curr}.svg`) }), {});
 
 const SvgIcon = ({ className, name, size }) => (
@@ -37,3 +47,23 @@ SvgIcon.propTypes = {
 };
 
 export default SvgIcon;
+
+export const ACCOUNTS_ICONS = [
+  'bank',
+  'card',
+  'wallet',
+];
+
+export const CATEGORIES_ICONS = [
+  'bank',
+  'building',
+  'cake',
+  'child',
+  'fitness',
+  'food',
+  'laptop',
+  'mood',
+  'transport',
+  'waves',
+  'work',
+];
