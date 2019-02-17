@@ -3,6 +3,8 @@ import React from 'react';
 
 
 const icons = [
+  'arrowSimpleDown',
+  'check',
   'close',
   'card',
   'dollar',

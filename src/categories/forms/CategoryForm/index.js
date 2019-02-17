@@ -4,6 +4,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import FormButton from 'ui/components/FormButton';
+import FormDropdown from 'ui/components/FormDropdown';
 import FormInput from 'ui/components/FormInput';
 
 import s from './index.scss';
@@ -13,7 +14,16 @@ let CategoryForm = ({ handleSubmit, initialValues, onDeleteCategory }) => (
   <form onSubmit={handleSubmit}>
     <Field autoFocus component={FormInput} label="Title" name="title"/>
     <Field component={FormInput} label="Icon" name="icon"/>
-    <Field component={FormInput} label="Type" name="type"/>
+    <Field
+      component={FormDropdown}
+      label="Type"
+      name="type"
+      options={[
+        { label: 'Expense', value: -1 },
+        { label: 'Expense & Income', value: 0 },
+        { label: 'Income', value: 1 }
+      ]}
+    />
     <div className={s.FormButtons}>
       <FormButton label="Save" type="submit"/>
       {initialValues._id &&

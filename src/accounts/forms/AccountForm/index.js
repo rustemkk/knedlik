@@ -4,6 +4,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import FormButton from 'ui/components/FormButton';
+import FormDropdown from 'ui/components/FormDropdown';
 import FormInput from 'ui/components/FormInput';
 
 import s from './index.scss';
@@ -14,7 +15,16 @@ let AccountForm = ({ handleSubmit, initialValues, onDeleteAccount }) => (
     <Field autoFocus component={FormInput} label="Title" name="title"/>
     <Field component={FormInput} label="Icon" name="icon"/>
     <Field component={FormInput} label="Initial amount" name="initialAmount"/>
-    <Field component={FormInput} label="Currency" name="currency"/>
+    <Field
+      component={FormDropdown}
+      label="Currency"
+      name="currency"
+      options={[
+        { label: 'Euro', value: 'EUR' },
+        { label: 'Russian Ruble', value: 'RUB' },
+        { label: 'US Dollar', value: 'USD' }
+      ]}
+    />
     <div className={s.FormButtons}>
       <FormButton label="Save" type="submit"/>
       {initialValues._id &&

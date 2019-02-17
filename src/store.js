@@ -17,7 +17,7 @@ export default function configureStore() {
 
   sagaMiddleware.run(rootSaga);
 
-  persistStore(store, { whitelist: ['accounts'] });
+  persistStore(store, { whitelist: ['accounts', 'categories'] });
 
   return store;
 }

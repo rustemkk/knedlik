@@ -1,7 +1,7 @@
 .FormInput {
   display: grid;
   grid-template-columns: 120px 180px;
-  grid-template-rows: $formInputHeight $formInputHeight 4px;
+  grid-template-rows: 26px 26px 4px;
   grid-template-areas: "label input1" "_ error";
 
   .Label {
@@ -10,21 +10,6 @@
     padding: 0 10px 0 0;
     font-size: $fontSizeBig;
     line-height: $formInputHeight;
-  }
-
-  .Input {
-    grid-area: input1;
-    padding: 0 0 0 10px;
-    font-size: $fontSizeSmall;
-    font-family: $fontFamily;
-    background-color: transparent;
-    color: $textColor;
-    border: 1px solid $textColor;
-    outline: none;
-
-    &:focus {
-      border: 1px solid $textColorActive;
-    }
   }
 
   .Error {
