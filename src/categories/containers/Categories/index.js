@@ -29,26 +29,57 @@ class Categories extends Component {
 
   render() {
     const { categories, showModal } = this.props;
+    const categoriesIncome = categories.filter(c => [0, 1].includes(c.type));
+    const categoriesExpenses = categories.filter(c => [-1, 0].includes(c.type));
 
     return (
       <div className={s.Categories}>
-        {categories.map(category =>
-          <div
-            className={s.Category}
-            key={category._id}
-            onClick={() => showModal(CATEGORY_MODAL, { categoryId: category._id })}
-          >
-            <div className={s.Icon}>
-              <SvgIcon className={s.IconPlus} name={category.icon} size={40}/>
+        <div className={s.GroupHeader}>
+          Income
+        </div>
+        <div className={s.CategoriesGroup}>
+          {categoriesIncome.map(category =>
+            <div
+              className={s.Category}
+              key={category._id}
+              onClick={() => showModal(CATEGORY_MODAL, { categoryId: category._id })}
+            >
+              <div className={s.Icon}>
+                <SvgIcon className={s.IconPlus} name={category.icon} size={40}/>
+              </div>
+              <div className={s.Title}>
+                {category.title}
+              </div>
             </div>
-            <div className={s.Title}>
-              {category.title}
+          )}
+          <div className={s.Category} onClick={() => showModal(CATEGORY_MODAL)}>
+            <div className={s.Icon}>
+              <SvgIcon className={s.IconPlus} name="plus" size={40}/>
             </div>
           </div>
-        )}
-        <div className={s.Category} onClick={() => showModal(CATEGORY_MODAL)}>
-          <div className={s.Icon}>
-            <SvgIcon className={s.IconPlus} name="plus" size={40}/>
+        </div>
+        <div className={s.GroupHeader}>
+          Expenses
+        </div>
+        <div className={s.CategoriesGroup}>
+          {categoriesExpenses.map(category =>
+            <div
+              className={s.Category}
+              key={category._id}
+              onClick={() => showModal(CATEGORY_MODAL, { categoryId: category._id })}
+            >
+              <div className={s.Icon}>
+                <SvgIcon className={s.IconPlus} name={category.icon} size={40}/>
+              </div>
+              <div className={s.Title}>
+                {category.title}
+              </div>
+            </div>
+          )}
+          <div className={s.Category} onClick={() => showModal(CATEGORY_MODAL)}>
+            <div className={s.Icon}>
+              <SvgIcon className={s.IconPlus} name="plus" size={40}/>
+            </div>
           </div>
         </div>
       </div>
