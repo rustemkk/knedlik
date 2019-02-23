@@ -1,0 +1,61 @@
+.Transactions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-right: 20px;
+
+  .Transaction {
+    width: 300px;
+    height: 60px;
+    border: 2px solid $textColor;
+    margin: 0 10px 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 60px 10px 140px 10px 80px;
+    grid-template-rows: 25px 20px 15px;
+    grid-template-areas:
+      "icon _ categoryTitle a amount"
+      "icon _ accountTitle a amount"
+      "icon _ comment a amount";
+
+    &:hover {
+      border: 2px solid $textColorActive;
+    }
+
+    .CategoryTitle {
+      grid-area: categoryTitle;
+      line-height: 25px;
+      font-size: $fontSizeBig;
+    }
+
+    .AccountTitle {
+      grid-area: accountTitle;
+      line-height: 20px;
+      font-size: $fontSize;
+    }
+
+    .Comment {
+      grid-area: comment;
+      line-height: 15px;
+      font-size: $fontSizeSmall;
+    }
+
+    .Amount {
+      grid-area: amount;
+      line-height: 60px;
+      text-align: right;
+    }
+
+    .Icon {
+      grid-area: icon;
+      margin: auto;
+
+      .IconClose {
+        background-color: $textColor;
+      }
+    }
+  }
+}

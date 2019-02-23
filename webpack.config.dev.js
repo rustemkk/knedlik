@@ -12,6 +12,7 @@ export default {
       categories: path.resolve(__dirname, './src/categories'),
       core: path.resolve(__dirname, './src/core'),
       images: path.resolve(__dirname, './src/images'),
+      transactions: path.resolve(__dirname, './src/transactions'),
       utils: path.resolve(__dirname, './src/utils')
     },
     modules: ['src', 'node_modules'],

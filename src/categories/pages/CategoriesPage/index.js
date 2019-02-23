@@ -2,8 +2,9 @@ import React from 'react';
 
 import Categories from '../../containers/Categories';
 
-const AccountsPage = () => (
+
+const CategoriesPage = () => (
   <Categories/>
 );
 
-export default AccountsPage;
+export default CategoriesPage;

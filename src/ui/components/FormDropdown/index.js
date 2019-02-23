@@ -8,7 +8,7 @@ import s from './index.scss';
 
 
 //TODO make HOC for label & error wrapper
-const FormDropdown = ({ autoFocus, disabled, input, label, meta: { error, touched }, options }) => (
+const FormDropdown = ({ disabled, input, label, meta: { error, touched }, options }) => (
   <div className={s.FormInput}>
     <span className={s.Label}>
       {label}
@@ -26,11 +26,11 @@ const FormDropdown = ({ autoFocus, disabled, input, label, meta: { error, touche
 );
 
 FormDropdown.propTypes = {
-  autoFocus: PropTypes.bool,
   disabled: PropTypes.bool,
   input: PropTypes.object.isRequired,
   label: PropTypes.string.isRequired,
   meta: PropTypes.object,
+  options: PropTypes.array.isRequired,
   placeholder: PropTypes.string,
 };
 

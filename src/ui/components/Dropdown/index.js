@@ -58,7 +58,7 @@ Dropdown.propTypes = {
   disabled: PropTypes.bool,
   onSelect: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
-  selectedValue: PropTypes.any,
+  selectedValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Dropdown;
