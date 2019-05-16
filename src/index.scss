@@ -7,9 +7,10 @@ $topMenuFontSize: 20px;
 $backgroundImage: linear-gradient(to bottom right, #353533, #181815);
 $backgroundImageInverted: linear-gradient(to bottom right, #353533, #181815);
 
+$fontSizeSmall: 14px;
 $fontSize: 16px;
 $fontSizeBig: 18px;
-$fontSizeSmall: 14px;
+$fontSizeVeryBig: 20px;
 
 $fontFamily: 'Slabo 27px', serif;
 
@@ -17,7 +18,11 @@ $modalBackgroundColor: rgba(255, 255, 255, 0.5);
 
 $textColor: #FFF;
 $textColorActive: #EBCF39;
-$textColorError: #ff4c73;
+$textColorError: #FF4C73;
 $textColorInverted: #424242;
 
 $formInputHeight: 26px;
+
+$colorGreen: #09FF67;
+$colorBlue: #002EFF;
+$colorRed: #FF4C73;

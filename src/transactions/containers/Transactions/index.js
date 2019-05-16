@@ -42,8 +42,10 @@ class Transactions extends Component {
 
   render() {
     // const { transactions, showModal } = this.props;
-    const { transactions } = this.props;
+    const { accounts, categories, transactions } = this.props;
 
+    console.log('accounts', accounts);
+    console.log('categories', categories);
     console.log('transactions', transactions);
 
     return (
@@ -68,8 +70,7 @@ class Transactions extends Component {
               {transaction.comment}
             </div>
             <div className={s.Amount}>
-              {/*{`${transaction.amount} ${transaction.currency}`}*/}
-              {transaction.amount}
+              {`${transaction.amount} ${g(this.getAccount(transaction.accountId), 'currency', '?')}`}
             </div>
           </div>
         )}
